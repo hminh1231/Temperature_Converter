@@ -53,9 +53,9 @@ class Converter:
         self.option()
         while True:
             keep_going = input('Do you want to continue?(Y/N): ')
-            if keep_going == 'N':
+            if keep_going.lower() == 'n':
                 break
-            elif keep_going == 'Y':
+            elif keep_going.lower() == 'y':
                 self.option()
             else:
                 print('Your choice is invalid, please try again')
