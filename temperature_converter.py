@@ -26,7 +26,7 @@ class Converter:
                 print('Your input must be number only')
         return (temp-32)/1.8
     
-    def option(self):
+    def options(self):
         '''This function will get user choice input and process it'''
         while True:
             try:
@@ -58,7 +58,7 @@ class Converter:
         '''This function will display everything and ask if user want to continue or not'''
         while True:
             self.menu()
-            option = self.option()
+            option = self.options()
             if option == 1:
                 print(f'Your result in Fahrenheit is {self.ctof()}')
                 if not self.keep_going():
