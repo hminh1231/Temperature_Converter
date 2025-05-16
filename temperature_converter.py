@@ -61,7 +61,7 @@ class Converter:
                 if not self.keep_going():
                     break
             elif option == 2:
-                print(f'Your result in Celsiust is {self.ftoc()}')
+                print(f'Your result in Celsius is {self.ftoc()}')
                 if not self.keep_going():
                     break
             elif option == 3:
