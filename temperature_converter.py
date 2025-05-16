@@ -37,28 +37,40 @@ class Converter:
                     print('You must choose option from 1-3')
             except ValueError:
                 print('Your choice is invalid, please try again')
-        if user == 1:
-            result_ctof = self.ctof()
-            print(f'The temperature in Fahrenheit is: {result_ctof:.2f}')
-                
-        elif user == 2:
-            result_ftoc = self.ftoc()
-            print(f'The temperature in Celsius is: {result_ftoc:.2f}')
-        else:
-            print('Thank you for choosing our service. Goodbye.')
+        return user
+    
+    def keep_going(self):
+        '''This function will decide if the user want to continue or not'''
+        choice = True
+        while choice:
+            working = input('Do you want to continue?(Y/N): ')
+            if working.lower() == 'y':
+                choice = False
+                return True
+            elif working.lower() == 'n':
+                print('Thank you for using me')
+                choice = False
+                return False
+            else:
+                print('Your choice is invalid, please try again')
             
     def display(self):
         '''This function will display everything and ask if user want to continue or not'''
-        self.menu()
-        self.option()
         while True:
-            keep_going = input('Do you want to continue?(Y/N): ')
-            if keep_going.lower() == 'n':
+            self.menu()
+            option = self.option()
+            if option == 1:
+                print(f'Your result in Fahrenheit is {self.ctof()}')
+                if not self.keep_going():
+                    break
+            elif option == 2:
+                print(f'Your result in Celsiust is {self.ftoc()}')
+                if not self.keep_going():
+                    break
+            elif option == 3:
+                print('Thank you for using me.')
                 break
-            elif keep_going.lower() == 'y':
-                self.option()
-            else:
-                print('Your choice is invalid, please try again')
+
         
 cvtemp = Converter()
 cvtemp.display()
